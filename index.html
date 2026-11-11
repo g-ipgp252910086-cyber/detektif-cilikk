@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cabaran Bonus – Detektif Cilik</title>
+<style>
+:root{--mint:#e2f5e9;--lav:#eee5fb;--blue:#e4f2ff;--yellow:#fff3c9;--ink:#39434c}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#eaf8f0,#f3efff,#fff9e8);font:16px/1.55 "Trebuchet MS",Arial,sans-serif;color:var(--ink)}
+main{max-width:1050px;margin:auto;padding:22px 16px 40px}header{text-align:center;padding:10px}
+.badge{display:inline-block;background:#8052b8;color:white;padding:9px 23px;border-radius:25px;font-weight:bold}
+h1{font-size:clamp(2rem,5vw,3.1rem);color:#65478b;margin:12px 0 3px}.sub{color:#687782;margin:0}
+.welcome{display:flex;align-items:center;gap:16px;background:#fffdf5;border:2px dashed #e4c779;border-radius:20px;padding:18px;margin:20px 0}.mascot{font-size:3rem}.welcome p{margin:0;font-weight:bold}
+.notice{text-align:center;background:#8052b8;color:white;border-radius:16px;padding:11px;font-weight:bold;margin:20px auto;max-width:700px}
+.grid{display:grid;grid-template-columns:1.1fr 1fr;gap:18px}.card{background:#fff;border:2px solid #dfe9e3;border-radius:21px;overflow:hidden;box-shadow:0 7px 20px #64736a15}.card h2{font-size:1.12rem;margin:0;padding:14px 17px}.a h2{background:var(--mint)}.b h2{background:var(--lav)}.inside{padding:17px}
+.field{margin:13px 0}.field label{display:block;font-weight:bold;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;font:inherit;padding:12px;border:2px solid #cbded7;border-radius:12px;background:#fff;color:var(--ink)}textarea{min-height:125px;resize:vertical}
+.rules{background:var(--yellow);padding:13px 16px;border-radius:14px;margin-top:15px;font-size:.93rem}.rules ul{margin:5px 0 0;padding-left:20px}.pick{background:#eaf7ee;padding:13px;border-radius:14px}.sentence{background:#f3edff;padding:13px;border-radius:14px}.hint{font-size:.88rem;color:#687782;margin:7px 0 0}
+.feedback{display:none;white-space:pre-wrap;background:#e6f7eb;border:1px solid #a8d9b8;border-radius:14px;padding:15px;margin:18px 0;font-weight:bold}.feedback.show{display:block}.feedback.error{background:#fff0ed;border-color:#e9b5a9;color:#8c4034}
+.buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:22px 0}button,.back{border:0;border-radius:26px;padding:13px 20px;font:inherit;font-weight:bold;cursor:pointer;text-decoration:none;box-shadow:0 4px 0 #0002}.send{background:#8954be;color:white}.clear{background:#69c58c;color:#163d2a}.back{background:#68b1e9;color:#123e61}
+.teacher{background:#fff;border:1px solid #e3e8e8;border-radius:15px;padding:14px;color:#65717a;font-size:.9rem}.teacher summary{cursor:pointer;font-weight:bold;color:#5c4b79}footer{text-align:center;color:#7a8589;font-size:.85rem;padding:20px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}}@media(max-width:440px){.welcome{align-items:flex-start}.mascot{font-size:2.4rem}.buttons>*{width:100%;text-align:center}}
+</style></head>
+<body><main>
+<header><span class="badge">CABARAN BONUS</span><h1>Detektif Cilik 🔎</h1><p class="sub">Cabaran khas selepas berjaya menyelesaikan Misi 1: Kenal Pasti</p></header>
+<div class="welcome"><div class="mascot" aria-hidden="true">🕵️‍♀️🔎</div><p>“Tahniah, Detektif! Kamu telah berjaya menyelesaikan Misi 1. Kini, kamu layak menyertai CABARAN BONUS untuk membuktikan bahawa kamu benar-benar pakar kata ganda!”</p></div>
+<div class="notice">Cabaran kamu mempunyai DUA tugasan sahaja!</div>
+<form id="challengeForm">
+<div class="grid" style="margin-bottom:16px"><div class="field"><label for="nama">👤 Nama murid</label><input id="nama" placeholder="Nama penuh murid" required></div><div class="field"><label for="kelas">🏫 Kelas</label><input id="kelas" placeholder="Contoh: 5 Bestari" required></div></div>
+<div class="grid">
+<section class="card a"><h2>🔎 TUGASAN 1: KUMPULKAN BUKTI BAHARU</h2><div class="inside">
+<p>Cari <strong>SATU</strong> contoh tambahan bagi setiap jenis kata ganda berikut:</p>
+<div class="field"><label for="penuh">1. Kata Ganda Penuh</label><input id="penuh" placeholder="Taip satu contoh..." required></div>
+<div class="field"><label for="separa">2. Kata Ganda Separa</label><input id="separa" placeholder="Taip satu contoh..." required></div>
+<div class="field"><label for="berentak">3. Kata Ganda Berentak</label><input id="berentak" placeholder="Taip satu contoh..." required></div>
+<div class="rules"><strong>📌 Syarat cabaran</strong><ul><li>Setiap contoh mestilah berbeza daripada contoh dalam nota dan Misi 1.</li><li>Pastikan perkataan benar-benar tergolong dalam jenis kata ganda tersebut.</li><li>Jangan gunakan contoh yang sama untuk lebih daripada satu kategori.</li></ul></div>
+</div></section>
+<section class="card b"><h2>✏️ TUGASAN 2: BINA AYAT KREATIF</h2><div class="inside">
+<p>Pilih <strong>SATU</strong> daripada tiga perkataan yang kamu temukan dalam Tugasan 1. Kemudian, bina <strong>SATU ayat</strong> yang lengkap dan gramatis.</p>
+<div class="field pick"><label for="pilihan">Perkataan pilihan:</label><select id="pilihan" required><option value="">Isi contoh dalam Tugasan 1 dahulu</option></select><p class="hint" id="pickHint">Pilihan akan muncul selepas kamu menaip contoh dalam Tugasan 1.</p></div>
+<div class="field sentence"><label for="ayat">📝 Ayat saya:</label><textarea id="ayat" placeholder="Tulis satu ayat lengkap di sini..." required></textarea></div>
+<p class="hint">Ayat akan disemak oleh guru dari segi penggunaan perkataan, tatabahasa dan kesesuaian konteks.</p>
+</div></section>
+</div>
+<div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+<div class="buttons"><button class="clear" id="clearBtn" type="button">🗑️ Padam Jawapan</button><button class="send" type="submit">📨 Teruskan ke Google Form</button><a class="back" id="backBtn" href="#">🏠 Kembali ke Markas</a></div>
+</form>
+<details class="teacher"><summary>Maklumat untuk guru: penghantaran dan semakan</summary>
+<p>Versi ini menyimpan draf pada pelayar murid dan membuka Google Form dengan semua jawapan dipraisi. Murid mesti menyemak jawapan dan menekan Hantar pada Google Form untuk menghantar kepada guru. Ini bukan penghantaran automatik satu klik.</p>
+<p>Semakan perkataan automatik tidak digunakan kerana contoh kata ganda yang sah mungkin tiada dalam senarai rujukan terhad. Guru perlu menyemak kategori dan ayat murid.</p>
+</details>
+<footer>Bahasa Melayu Tahun 5 • Cabaran Bonus – Detektif Cilik</footer>
+</main>
+<script>
+const MARKAS_URL = ""; // Masukkan URL halaman Markas Google Sites jika ada.
+const $ = id => document.getElementById(id);
+const wordIds = ["penuh","separa","berentak"];
+const allIds = ["nama","kelas",...wordIds,"pilihan","ayat"];
+function refreshChoices(){
+  const select=$("pilihan"), old=select.value;
+  const words=wordIds.map(id=>$(id).value.trim()).filter(Boolean);
+  select.innerHTML="";
+  select.add(new Option(words.length ? "Pilih satu perkataan" : "Isi contoh dalam Tugasan 1 dahulu",""));
+  words.forEach(word=>select.add(new Option(word,word)));
+  if(words.includes(old)) select.value=old;
+  $("pickHint").textContent=words.length ? "Pilih salah satu daripada perkataan yang kamu isi di atas." : "Pilihan akan muncul selepas kamu menaip contoh dalam Tugasan 1.";
+}
+function saveDraft(){
+  const data={}; allIds.forEach(id=>data[id]=$(id).value);
+  try{localStorage.setItem("detektifCilikDraft",JSON.stringify(data));}catch(e){}
+}
+try{
+  const saved=JSON.parse(localStorage.getItem("detektifCilikDraft")||"{}");
+  allIds.forEach(id=>{if(saved[id]!==undefined)$(id).value=saved[id];});
+}catch(e){}
+wordIds.forEach(id=>$(id).addEventListener("input",()=>{refreshChoices();saveDraft();}));
+["nama","kelas"].forEach(id=>$(id).addEventListener("input",saveDraft));
+$("pilihan").addEventListener("change",saveDraft);
+$("ayat").addEventListener("input",saveDraft);
+refreshChoices();
+$("challengeForm").addEventListener("submit",function(e){
+  e.preventDefault();
+  const words=wordIds.map(id=>$(id).value.trim());
+  const norm=words.map(w=>w.toLocaleLowerCase("ms-MY"));
+  if(!$("nama").value.trim()||!$("kelas").value.trim()){show("Sila isi nama dan kelas dahulu.",true);return;}
+  if(words.some(w=>!w)){show("Sila isi ketiga-tiga contoh kata ganda dahulu.",true);return;}
+  if(new Set(norm).size!==3){show("Pastikan ketiga-tiga contoh perkataan berbeza.",true);return;}
+  if(!$("pilihan").value){show("Sila pilih satu perkataan daripada senarai Tugasan 2.",true);return;}
+  if(!$("ayat").value.trim()){show("Sila bina satu ayat lengkap menggunakan perkataan pilihan.",true);return;}
+  saveDraft();
+  const base="https://docs.google.com/forms/d/e/1FAIpQLSesfiAWMLmbSgxt0uJV2KgqNC85CsQiN35Shu-raRqNsvIBxg/viewform";
+  const params=new URLSearchParams({
+    "usp":"pp_url",
+    "entry.1490601149":$("nama").value.trim(),
+    "entry.1604851558":$("kelas").value.trim(),
+    "entry.1113393324":words[0],
+    "entry.454250591":words[1],
+    "entry.1946051814":words[2],
+    "entry.7508792":$("pilihan").value,
+    "entry.1126978089":$("ayat").value.trim()
+  });
+  const url=base+"?"+params.toString();
+  const link=document.createElement("a");
+  link.href=url;link.target="_blank";link.rel="noopener noreferrer";
+  link.textContent="Buka Google Form dengan jawapan yang telah diisi";
+  const box=$("feedback");
+  box.replaceChildren(document.createTextNode("Jawapan kamu telah disediakan dalam Google Form. Buka pautan di bawah, semak jawapan dan tekan HANTAR di Google Form untuk menghantar kepada cikgu.\n\n"),link);
+  box.className="feedback show";
+  window.open(url,"_blank","noopener,noreferrer");
+});
+function show(message,error){const box=$("feedback");box.textContent=message;box.className=error?"feedback show error":"feedback show";}
+$("clearBtn").addEventListener("click",()=>{
+  if(!confirm("Padam semua jawapan?"))return;
+  allIds.forEach(id=>$(id).value="");
+  try{localStorage.removeItem("detektifCilikDraft");}catch(e){}
+  refreshChoices();$("feedback").className="feedback";
+});
+$("backBtn").addEventListener("click",e=>{
+  e.preventDefault();
+  if(MARKAS_URL)location.href=MARKAS_URL;
+  else if(history.length>1)history.back();
+  else alert("Masukkan URL halaman Markas pada tetapan MARKAS_URL dalam kod HTML.");
+});
+</script></body></html>
